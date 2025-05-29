@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  kgasu-bot:
+    build: .
+    container_name: kgasu-telegram-bot
+    restart: unless-stopped
+    environment:
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}  # Из .env файла
+      - PORT=5000
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app  
